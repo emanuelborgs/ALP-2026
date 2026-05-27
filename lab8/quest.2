@@ -1,0 +1,18 @@
+import random
+
+secreto = random.randint(1, 10)
+chances = 5
+while chances > 0:
+    palpite = int(input("Adivinhe o número (1 a 10): "))
+    # Número inválido
+    if palpite < 1 or palpite > 10:
+        print("Número inválido! Tente novamente.")
+        continue
+    chances -= 1
+    # Acertou
+    if palpite == secreto:
+        print("Parabéns! Você acertou!")
+        break
+    print(f"Errado! Você ainda tem {chances} chances.")
+else:
+    print(f"Fim de jogo! O número era {secreto}")
