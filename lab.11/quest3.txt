@@ -1,0 +1,35 @@
+import random
+pontos1 = 0
+pontos2 = 0
+rodada = 1
+while pontos1 < 50 and pontos2 < 50:
+    print(f"\n========== RODADA {rodada} ==========")
+    palpite1 = int(input(f"Jogador 1 ({pontos1} pontos): Qual o seu palpite para a soma dos dados? "))
+    palpite2 = int(input(f"Jogador 2 ({pontos2} pontos): Qual o seu palpite para a soma dos dados? "))
+    print("\n Rolando os dados...")
+    dado1 = random.randint(1, 6)
+    dado2 = random.randint(1, 6)
+    soma = dado1 + dado2
+    print(f"Dado 1: {dado1}")
+    print(f"Dado 2: {dado2}")
+    print(f"Resultado: {soma}")
+    dist1 = abs(soma - palpite1)
+    dist2 = abs(soma - palpite2)
+    if dist1 < dist2:
+        print(" Jogador 1 ganha a rodada! (+5 pontos)")
+        pontos1 += 5
+    elif dist2 < dist1:
+        print(" Jogador 2 ganha a rodada! (+5 pontos)")
+        pontos2 += 5
+    else:
+        print(" EMPATE! Cada um ganha 2 pontos!")
+        pontos1 += 2
+        pontos2 += 2
+    rodada += 1
+print("\n========== FIM DE JOGO ==========")
+if pontos1 >= 50 and pontos2 >= 50:
+    print("Empate geral!")
+elif pontos1 >= 50:
+    print(" Jogador 1 venceu o jogo!")
+else:
+    print(" Jogador 2 venceu o jogo!")
